@@ -3,11 +3,12 @@
  */
 fun main(){
     val amount = 1900000 //в копейках!!!
-    val comission:Int = if(amount*75/10000 <= 3500) {
+    val comissionStandart = 0.0075
+    val comission:Int = if(amount* comissionStandart <= 3500) {
         35000
     }
-    else {
-        amount*75/10000
-    }
+    else (
+        amount * comissionStandart
+    ).toInt()
     println("$comission")
 }

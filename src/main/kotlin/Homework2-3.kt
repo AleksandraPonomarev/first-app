@@ -3,22 +3,25 @@
  *
  */
 fun main(){
-    val meloman :Boolean = false
+    val meloman :Boolean = true
     val count: Int = 14238// в рублях
+    val discount = 100
+    val bigDiscount = 95
+    val melomanDiscount = 99
     //сумма покупки в копейках
-    var priceInKop = if (count <= 1000) {
-        count
+    var priceInKop: Int = if (count <= 1000) {
+        count * 100
     }
     else {
         if (count in 1001..10000) {
-            (count - 100) * 100
+            (count - discount) * 100
         }
         else {
-            count * 95
+            count * bigDiscount
         }
     }
-    if(meloman == true) {
-        priceInKop = priceInKop * 99/100
+    if(meloman) {
+        priceInKop = (priceInKop * melomanDiscount)/100
     }
     println("Итоговая сумма покупки равна ${priceInKop/100} рублей и ${priceInKop%100} копеек")
 }

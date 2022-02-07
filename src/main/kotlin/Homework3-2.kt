@@ -11,11 +11,11 @@ fun main(){
     val amount = 1900//000 //в копейках!!!
     val amountInMonth = 19000000 //в копейках
     val cardType = MAESTRO
-    val result = test(cardType, amountInMonth, amount)
+    val result = countComission(cardType = cardType, amountInMonth = amountInMonth, amount=amount)
     println("$result")
 }
 
-fun test(cardType: String, amountInMonth: Int, amount: Int): String {
+fun countComission(cardType: String = VKPAY, amountInMonth: Int, amount: Int): String {
     return when (cardType) {
         VKPAY -> comissionVkPay(amount = amount, amountInMonth= amountInMonth)
         MIR, VISA -> comissionVisa(amount = amount, amountInMonth= amountInMonth)
